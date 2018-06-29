@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+
+  <!-- Mapbox script tags -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+
   <title>Restaurant Reviews</title>
 </head>
 
@@ -16,20 +25,41 @@
   </header>
 
   <main id="maincontent">
+
+<!-- Map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div id='map'></div>
+      <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lcmVmZm8iLCJhIjoiY2ppdXVreTNmMDIwZzNrcHRtZDlteGd3YyJ9.-wOObZlYd0t4pkhYhshEUA';
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v10'
+        });
+        // map.addControl(new mapboxgl.NavigationControl());
+      </script>
+
     </section>
     <section>
+
+<!-- Filter menu -->
       <div class="filter-options">
         <h2>Filter Results</h2>
+
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
+
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
+    </section>
+    
+<!-- Restaurant listings -->
+    <section>
+
       <ul id="restaurants-list"></ul>
+
     </section>
   </main>
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
@@ -43,5 +73,4 @@
   </footer>
 
 </body>
-
 </html>
