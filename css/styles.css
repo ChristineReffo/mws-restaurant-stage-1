@@ -383,7 +383,7 @@ ul {
   #restaurants-list li {
     min-height: 380px;
     padding: 0 30px 25px;
-    width: calc((100% - 60px) / 2.5);
+    width: calc((100% - 60px) / 2.5); --> should be divided by 3 to get three listings
 		margin-left:auto;
 		margin-right:auto;
   }
@@ -419,7 +419,7 @@ ul {
   #restaurants-list li {
     min-height: 380px;
     padding: 0 30px 25px;
-    width: calc((100% - 90px) / 4);
+    width: calc((100% - 90px) / 4); --> should give me 4 listings
 		margin-left:auto;
 		margin-right:auto;
   }
