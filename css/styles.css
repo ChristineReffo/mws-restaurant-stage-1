@@ -48,6 +48,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   min-height: 100%;
 }
 
+
 #footer {
   background-color: #444;
   color: #aaa;
@@ -86,7 +87,7 @@ nav h1 a {
   background-color: #eee;
   font-size: 17px;
   margin: 0;
-  width: calc(50% - 80px);
+  width: calc(100% - 80px);
 }
 
 /* Display list items side by side */
@@ -169,10 +170,10 @@ nav h1 a {
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
   margin: 15px;
-  /* min-height: 380px; */
+  min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  /* width: 270px; */
+  min-width: 270px;
 }
 
 #restaurants-list .restaurant-img {
@@ -180,7 +181,7 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  /* min-height: 248px; */
+  min-height: 248px;
   min-width: 100%;
 }
 
@@ -215,20 +216,33 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 
+html {
+  width:100%;
+}
+.inside body{
+  position: absolute;
+  margin: 0;
+
+}
 .inside header {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1000;
 }
+.inside #maincontent {
+  background-color: #f3f3f3;
+  min-height: 100%;
+}
 
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
+  height: 20%;
+  position: relative;
   right: 0;
-  top: 80px;
-  width: 50%;
+  top: 0;
+  width: 100%;
+  height:500px;
 }
 
 .inside #map {
@@ -239,8 +253,7 @@ nav h1 a {
 
 .inside #footer {
   bottom: 0;
-  position: absolute;
-  width: 50%;
+  position: relative;
 }
 
 #restaurant-name {
@@ -253,9 +266,12 @@ nav h1 a {
   text-transform: uppercase;
   line-height: 1.1;
 }
-
+td {
+  vertical-align: top;
+}
 #restaurant-img {
   width: 90%;
+  display: block;
 }
 
 #restaurant-address {
@@ -279,8 +295,10 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding: 30px 40px 30px;
+  width: 100% - 80px;
+  display: block;
+  word-wrap: break-word;
 }
 
 #reviews-container {
@@ -307,7 +325,7 @@ nav h1 a {
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
+  padding: 10px 20px 20px;
   position: relative;
   width: 85%;
 }
@@ -324,9 +342,10 @@ nav h1 a {
 
 /* Flexbox Wrap to Restaurant listings */
 
-ul {
+.flex-container {
 	display: flex;
 	flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -336,7 +355,7 @@ ul {
   /* Title Restaurant Review */
 
 	nav h1 a {
-    font-size: 1.5vh;
+    font-size: 1.8vh;
   }
   /* Filter menu */
   .filter-options {
@@ -355,9 +374,25 @@ ul {
     height: 35px;
     width: 130px;
   }
+
+
+  /* =========== Restaurant Details ============ */
+
+
+  #restaurant-container, #reviews-container {
+    padding: 30px 20px 30px;
+    width: 100% - 80px;
+  }
+
+
+/* Responsiveness for Restaurant.html */
+#map-container {
+	width:100%;
 }
 
-/* Ipad screen */
+}
+
+/* Tablet screen */
 
 @media only screen and (min-width: 426px) and (max-width: 768px) {
 
@@ -381,14 +416,13 @@ ul {
   }
   /* Restaurant Listings */
   #restaurants-list li {
-    /* min-height: 380px; */ --> squeezes image !!! /* TODO */
-    padding: 0 30px 25px;
-    width: calc((100% - 60px) / 3); --> should be divided by 3 to get three listings
+    padding: 0 10px 25px;
+    width: calc((100% - 120px) / 3);
 		margin-left:auto;
 		margin-right:auto;
   }
 	#restaurants-list li h1 {
-		font-size: 2vw; --> /* TODO: how to keep buttons aligned with wrapping titles */
+		font-size: 2vw;
 	}
 }
 
@@ -420,16 +454,12 @@ ul {
   }
   /* Restaurant Listings */
   #restaurants-list li {
-    min-height: 380px;
-    padding: 0 30px 25px;
-    width: calc((100% - 90px) / 4); --> should give me 4 listings
-		margin-left:auto;
-		margin-right:auto;
+    padding: 0 10px 25px;
+    width: calc((100% - 240px) / 4);
   }
 	#restaurants-list li h1 {
-		font-size: 1.4vw; --> /* TODO: how to keep buttons aligned with wrapping titles */
-	}
-
+		font-size: 2vw;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
@@ -459,21 +489,12 @@ ul {
   }
   /* Restaurant Listings */
   #restaurants-list li {
-    min-height: 380px;
-    padding: 0 30px 25px;
-    width: calc((100% - 90px) / 4); --> should give me 4 listings
-		margin-left:auto;
-		margin-right:auto;
+    padding: 0px 30px 25px;
+    width: calc((100% - 240px) / 4);
+		margin-left: auto;
+		margin-right: auto;
   }
 	#restaurants-list li h1 {
-		font-size: 1.4vw; --> /* TODO: how to keep buttons aligned with wrapping titles */
+		font-size: 2vw;
 	}
-}
-
-
-/* Responsiveness for Restaurant.html */
-/*
-@media only screen and (max-width: 680px) {
-
-
-} */
+};
