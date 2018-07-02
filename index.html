@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,39 +27,37 @@
 
   <main id="maincontent">
 
-<!-- Map -->
+    <!-- Map -->
     <section id="map-container">
-      <div id='map'></div>
+      <div id='map' aria-label="Location of restaurants on map" role="application"></div>
       <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lcmVmZm8iLCJhIjoiY2ppdXVreTNmMDIwZzNrcHRtZDlteGd3YyJ9.-wOObZlYd0t4pkhYhshEUA';
         var map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v10'
         });
-        // map.addControl(new mapboxgl.NavigationControl());
       </script>
-
     </section>
-    <section>
 
-<!-- Filter menu -->
-      <div class="filter-options">
+    <section>
+      <!-- Filter menu -->
+      <div class="filter-options" aria-label="Filter options">
         <h2>Filter Results</h2>
 
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-role="Dropdown menu" aria-haspopup="true" aria-expanded="false">
           <option value="all">All Neighborhoods</option>
         </select>
 
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-role="Dropdown menu" aria-haspopup="true" aria-expanded="false">
           <option value="all">All Cuisines</option>
         </select>
       </div>
     </section>
 
-<!-- Restaurant listings -->
+    <!-- Restaurant listings -->
     <section>
 
-      <ul id="restaurants-list" class = "flex-container"></ul>
+      <ul id="restaurants-list" class="flex-container" aria-label="List of restaurants"></ul>
 
     </section>
   </main>
@@ -69,9 +68,10 @@
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script> -->
 
 
-  <footer id="footer">
+  <footer id="footer" aria-label="Footer">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
 
 </body>
+
 </html>

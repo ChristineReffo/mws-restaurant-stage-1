@@ -37,9 +37,9 @@
   <!-- Beginning main -->
   <main id="maincontent" class="flex-container">
     <!-- Beginning map -->
-    <section id="map-container">
-      <div id='map'></div>
-      <script>
+    <section id="map-container" tabindex = "-1">
+      <div id='map' role="application" tabindex = "-1"></div>
+      <script tabindex = "-1">
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lcmVmZm8iLCJhIjoiY2ppdXVreTNmMDIwZzNrcHRtZDlteGd3YyJ9.-wOObZlYd0t4pkhYhshEUA';
         var map = new mapboxgl.Map({
           container: 'map',
@@ -50,19 +50,19 @@
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section>
+    <section aria-label="Restaurant details">
       <div id="restaurant-container">
-        <h1 id="restaurant-name"></h1>
+        <h1 id="restaurant-name" aria-label ="Restaurant's name"></h1>
         <img id="restaurant-img">
-        <p id="restaurant-cuisine"></p>
-        <p id="restaurant-address"></p>
-        <table id="restaurant-hours"></table>
+        <p id="restaurant-cuisine" aria-label="Restaurant cuisine"></p>
+        <p id="restaurant-address" aria-label="Restaurant address"></p>
+        <table id="restaurant-hours" aria-label="Opening hours"></table>
       </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
     <section id="reviews-container">
-      <ul id="reviews-list"></ul>
+      <ul id="reviews-list" aria-label="List of restaurant reviews"></ul>
     </section>
     <!-- End reviews -->
   </main>
@@ -80,7 +80,7 @@
   <!-- Main javascript file -->
   <script type="text/javascript" src="js/restaurant_info.js"></script>
 
-  <!-- Service Worker Registration -->  
+  <!-- Service Worker Registration -->
   <script type="application/javascript" charset="utf-8" src="sw/app.js"></script>
 
   <!-- Google Maps -->

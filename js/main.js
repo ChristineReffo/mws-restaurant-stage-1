@@ -4,6 +4,7 @@ let restaurants,
 var newMap
 var markers = []
 
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -36,6 +37,8 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
+    option.setAttribute("role", "menu-item");
+    option.setAttribute("tabindex", "-1");
     select.append(option);
   });
 }
@@ -64,6 +67,8 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
+    option.setAttribute("role", "menu-item");
+    option.setAttribute("tabindex", "-1");
     select.append(option);
   });
 }
@@ -161,6 +166,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + " restaurant " + restaurant.neighborhood;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -177,6 +183,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute("role", "button");
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
