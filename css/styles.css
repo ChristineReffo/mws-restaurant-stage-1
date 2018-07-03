@@ -169,10 +169,11 @@ nav h1 a {
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
   margin: 15px;
-  min-height: 380px;
+  min-height: 420px;
   padding: 0 30px 25px;
   text-align: left;
   min-width: 270px;
+  position:relative;
 }
 
 #restaurants-list .restaurant-img {
@@ -211,6 +212,8 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  position: absolute;
+  bottom: 10px;
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -249,6 +252,7 @@ html {
 .inside #map {
   background-color: #ccc;
   height: 100%;
+  /* Change back to 100% if not working */
   width: 100%;
 }
 
@@ -273,7 +277,7 @@ td {
 }
 
 #restaurant-img {
-  width: 90%;
+  width: 80%;
   display: block;
 }
 
@@ -292,19 +296,24 @@ td {
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-  width: 90%;
+  width: 80%;
 }
 
-#restaurant-container, #reviews-container {
+#restaurant-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 30px 40px 30px;
-  width: 100% - 80px;
+  /* width: 50% - 80px; */
   display: block;
-  word-wrap: break-word;
 }
 
 #reviews-container {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
+  padding: 30px 40px 30px;
+  width: calc(100% - 80px);
+  display: block;
+  word-wrap: break-word;
   padding: 30px 40px 80px;
 }
 
@@ -330,7 +339,7 @@ td {
   overflow: hidden;
   padding: 10px 20px 20px;
   position: relative;
-  width: 85%;
+  width: calc(100%-40px);
 }
 
 #reviews-list li p {
@@ -341,6 +350,16 @@ td {
   color: #666;
 }
 
+/* ====================== Accessibility Feature Skip Links ==== */
+
+.skip-link {
+  background: #252831;
+}
+
+.inside .skip-link {
+  background: #f3f3f3;
+}
+
 /* ====================== Responsiveness ====================== */
 
 /* Flexbox Wrap to Restaurant listings */
@@ -349,6 +368,11 @@ td {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.inside.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Mobile screen */
@@ -371,17 +395,20 @@ td {
     margin: 0 10px;
   }
   .filter-options select {
-    font-size: 2.5vw;
+    font-size: 3vw;
     height: 35px;
     width: 130px;
   }
   /* =========== Restaurant Details ============ */
+  nav h1 a {
+    font-size: 3.5vw;
+  }
+
   #restaurant-container, #reviews-container {
     padding: 30px 20px 30px;
     width: 100% - 80px;
   }
-  /* Responsiveness for Restaurant.html */
-  #map-container {
+    #map-container {
     width: 100%;
   }
 }
@@ -408,6 +435,10 @@ td {
     width: 190px;
   }
   /* Restaurant Listings */
+  nav h1 a {
+    font-size: 2.5vw;
+  }
+
   #restaurants-list li {
     padding: 0 10px 25px;
     width: calc((100% - 120px) / 3);
@@ -424,7 +455,7 @@ td {
 @media only screen and (min-width: 769px) and (max-width:1024px) {
   /* Title Restaurant Review */
   nav {
-    height: 100px;
+    height: 80px;
   }
   /* Filter menu */
   .filter-options {
@@ -452,12 +483,26 @@ td {
   #restaurants-list li h1 {
     font-size: 2vw;
   }
+
+  /* Restaurant Details */
+  nav h1 a {
+    font-size: 2vw;
+  }
+  .inside #restaurant-container {
+    width: calc(50% - 80px);
+    margin: 0;
+    padding: 30px 0px 30px 30px;
+  }
+  .inside #map-container {
+    width: 50%;
+    margin: 85px 5px 30px 0px;
+  }
 }
 
 @media only screen and (min-width: 1025px) {
   /* Title Restaurant Review */
   nav {
-    height: 100px;
+    height: 80px;
   }
   /* Filter menu */
   .filter-options {
@@ -467,13 +512,13 @@ td {
   .filter-options h2 {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 2.5vw;
+    font-size: 1.8vw;
     font-weight: normal;
     line-height: 1;
     margin: 0 10px;
   }
   .filter-options select {
-    font-size: 2vw;
+    font-size: 1.5vw;
     height: 40px;
     width: 260px;
   }
@@ -487,7 +532,21 @@ td {
   #restaurants-list li h1 {
     font-size: 2vw;
   }
+  /* Restaurant Details */
 
+  nav h1 a {
+    font-size: 2vw;
+  }
+
+  .inside #restaurant-container {
+    width: calc(50% - 80px);
+    margin: 0;
+    padding: 30px 0px 30px 30px;
+  }
+  .inside #map-container {
+    width: 50%;
+    margin: 85px 5px 30px 0px;
+  }
 }
 
 ;

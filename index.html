@@ -27,6 +27,9 @@
 
   <main id="maincontent">
 
+    <!-- Skip map in tab navitation for accessibility -->
+    <div class="skip-link"><a href="#skipToContainer">To Content</a></div>
+
     <!-- Map -->
     <section id="map-container">
       <div id='map' aria-label="Location of restaurants on map" role="application"></div>
@@ -39,7 +42,7 @@
       </script>
     </section>
 
-    <section>
+    <section id="skipToContainer">
       <!-- Filter menu -->
       <div class="filter-options" aria-label="Filter options">
         <h2>Filter Results</h2>
@@ -57,7 +60,7 @@
     <!-- Restaurant listings -->
     <section>
 
-      <ul id="restaurants-list" class="flex-container" aria-label="List of restaurants"></ul>
+      <ul id="restaurants-list" class="flex-container" role="list" aria-label="List of restaurants"></ul>
 
     </section>
   </main>
