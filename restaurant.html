@@ -26,7 +26,7 @@
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" aria-label="Breadcrumb">
+    <ul id="breadcrumb" role = "navigation" aria-label="Breadcrumb">
       <li><a href="/">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
@@ -56,7 +56,7 @@
       <!-- Skip map in tab navitation for accessibility -->
       <div class="skip-link"><a href="#reviews-container">To reviews</a></div>
 
-      <div id='map' role="application" tabindex="-1"></div>
+      <div id='map' role="application" aria-label="map of restaurant location "tabindex="-1"></div>
       <script tabindex="-1">
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aW5lcmVmZm8iLCJhIjoiY2ppdXVreTNmMDIwZzNrcHRtZDlteGd3YyJ9.-wOObZlYd0t4pkhYhshEUA';
         var map = new mapboxgl.Map({
@@ -89,8 +89,6 @@
   <!-- Main javascript file -->
   <script type="text/javascript" src="js/restaurant_info.js"></script>
 
-  <!-- Service Worker Registration -->
-  <script type="application/javascript" charset="utf-8" src="sw/app.js"></script>
 
   <!-- Google Maps -->
   <!-- Google Maps -->
