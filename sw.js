@@ -1,4 +1,4 @@
-// Service worker and caching installation
+/* Service worker and caching installation*/
 
 var cacheName = "restaurant-cache-v1"
 var UrlsToCache = [
@@ -19,7 +19,17 @@ var UrlsToCache = [
   '/img/7.jpg',
   '/img/8.jpg',
   '/img/9.jpg',
-  '/img/10.jpg'
+  '/img/10.jpg',
+  '/restaurant.html?id=1',
+  '/restaurant.html?id=2',
+  '/restaurant.html?id=3',
+  '/restaurant.html?id=4',
+  '/restaurant.html?id=5',
+  '/restaurant.html?id=6',
+  '/restaurant.html?id=7',
+  '/restaurant.html?id=8',
+  '/restaurant.html?id=9',
+  '/restaurant.html?id=10'
 ];
 
 self.addEventListener("install", function(event) {
@@ -27,11 +37,22 @@ self.addEventListener("install", function(event) {
     caches.open(cacheName).then(function(cache) {
       console.log("[ServiceWorker] Caching cacheFiles");
       return cache.addAll(UrlsToCache);
+      console.log("[ServiceWorker] found in cache ", event.request.url);
     })
   );
 });
 
-
+// self.addEventListener("fetch", function(event) {
+// 	// here the you create a URL object
+// 	const url = new URL(event.request.url);
+//
+//     event.respondWith(
+// 		// here you use url.pathname
+//         caches.match(url.pathname).then(function(response) {
+//             return response || fetch(event.request);
+//         })
+//     );
+// });
 
 self.addEventListener("fetch", function(event) {
   event.respondWith(
@@ -43,7 +64,7 @@ self.addEventListener("fetch", function(event) {
     })
   );
 });
-//
+
 // self.addEventListener('activate', function(event) {
 //
 //   var cacheWhitelist = ['restaurant-cache-v1'];

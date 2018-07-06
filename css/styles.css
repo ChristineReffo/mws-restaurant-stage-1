@@ -39,6 +39,13 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px;
 }
 
+h3 {
+  font-size: 11pt;
+  line-height:1.5;
+  font-weight:normal;
+
+}
+
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -352,6 +359,8 @@ td {
 
 /* ====================== Accessibility Feature Skip Links ==== */
 
+
+
 .skip-link {
   background: #252831;
 }
@@ -359,6 +368,11 @@ td {
 .inside .skip-link {
   background: #f3f3f3;
 }
+
+.inside .skip-link:hover {
+  text-decoration-color: black;
+}
+
 
 /* ====================== Responsiveness ====================== */
 
